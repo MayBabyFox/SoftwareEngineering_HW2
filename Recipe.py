@@ -2,16 +2,16 @@ from Ingredient import Ingredient
 
 
 class Recipe:
-    def __init__(self, title, ingredients):
+    def __init__(self, title, ingredients=None):
         self.title = title
-        self.ingredients = []
+        self.ingredients = ingredients if ingredients is not None else []
 
     def add_ingredient(self, ingredient: Ingredient):
         for component in self.ingredients:
             if component == ingredient:
                 component.quantity += ingredient.quantity
                 return
-            self.ingredients.append(ingredient)
+        self.ingredients.append(ingredient)
 
     @staticmethod
     def is_valid_ratio(ratio):

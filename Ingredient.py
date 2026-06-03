@@ -1,7 +1,7 @@
 class Ingredient:
     def __init__(self, name, quantity, unit):
         self.name = name
-        self._quantity = quantity
+        self.quantity = quantity
         self.unit = unit
 
     @property
@@ -18,7 +18,7 @@ class Ingredient:
         return f"{self.name}: {self.quantity} {self.unit}"
 
     def __repr__(self):
-        return f"Ingredient('{self.name}', {self.quantity}, '{self.unit}') "
+        return f"Ingredient('{self.name}', {self.quantity}, '{self.unit}')"
 
     def __eq__(self, other):
         return self.name == other.name and self.unit == other.unit

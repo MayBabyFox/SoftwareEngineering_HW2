@@ -29,11 +29,12 @@ class Recipe:
     def __len__(self):
         unique_components = []
         for component in self.ingredients:
-            if not (component.name, component.unit) in unique_components:
-                unique_components.append(component.name)
+            if (component.name, component.unit) not in unique_components:
+                unique_components.append((component.name, component.unit))
         return len(unique_components)
 
     def __str__(self):
         ingredients_reader = []
         for component in self.ingredients:
             ingredients_reader.append(f"{component.name}: {component.quantity} {component.unit}")
+        return f"Блюдо: {self.title}\nИнгредиенты:\n" + "\n".join(ingredients_reader)
